@@ -1,10 +1,13 @@
 ﻿using System.Net.Http.Json;
+using System.Runtime.Versioning;
+using G1.Stripe.Maui.Options;
 #if IOS
 using Stripe;
 #endif
 
 namespace G1.Stripe.Maui.Demo
 {
+    [RequiresPreviewFeatures]
     public partial class MainPage : ContentPage
     {
         private HttpClient client = new HttpClient(GetInsecureHandler());
@@ -33,28 +36,36 @@ namespace G1.Stripe.Maui.Demo
             address = "https://10.0.2.2:7095/intent";
 #endif
 
-            var data = await client.GetFromJsonAsync<PaymentInfo>(address);
+            // var data = await client.GetFromJsonAsync<PaymentInfo>(address);
 
-            _paymentSheet.Initialize(data!.PublishableKey);
+            _paymentSheet.Initialize("pk_test_U35LCFeO1MPMcel20MBKQMxy");
+
             var result = await _paymentSheet.Open(new Options.PaymentSheetOptions
             {
-                ClientSecret = data.ClientSecret,
-                Customer = new Options.PaymentSheetCustomerOptions(data.Ephemeral, data.CustomerId),
-                MerchantDisplayName = "Test",
-                AllowsDelayedPaymentMethods = true,
-                BillingDetails = new Options.PaymentSheetBillingDetailsCollectionOptions
-                {
-                    Name = Options.BillingDetailsCollectionMode.Always,
-                    Phone = Options.BillingDetailsCollectionMode.Always,
-                    Email = Options.BillingDetailsCollectionMode.Always,
-                    Address = Options.AddressCollectionMode.Full,
-                    AttachDefaultsToPaymentMethod = false
-                },
+
+                StripeAccountId = "",
+                ClientSecret = "", // data.ClientSecret,
+                // Customer = new PaymentSheetCustomerOptions(null, ""),
+                MerchantDisplayName = "",
+                // AllowsDelayedPaymentMethods = true,
+                // BillingDetails = new Options.PaymentSheetBillingDetailsCollectionOptions
+                // {
+                //     Name = Options.BillingDetailsCollectionMode.Always,
+                //     Phone = Options.BillingDetailsCollectionMode.Always,
+                //     Email = Options.BillingDetailsCollectionMode.Always,
+                //     Address = Options.AddressCollectionMode.Full,
+                //     AttachDefaultsToPaymentMethod = false
+                // },
 
 #if IOS
-                ApplePayConfiguration = new TSPSApplePayConfiguration("your.merchant.id", "us", PassKit.PKPaymentButtonType.Checkout, null, null)
+                ApplePay = new ApplePayOptions
+                {
+                    MerchantId = "merchant.com.yourapp.id",
+                    CountryCode = "US",
+                }
+                    // TSPSApplePayConfiguration("your.merchant.id", "us", PassKit.PKPaymentButtonType.Checkout, null, null)
 #elif ANDROID
-                GooglePay = new Com.Stripe.Android.Paymentsheet.PaymentSheet.GooglePayConfiguration(Com.Stripe.Android.Paymentsheet.PaymentSheet.GooglePayConfiguration.Environment.Test!, "us")
+                // GooglePay = new Com.Stripe.Android.Paymentsheet.PaymentSheet.GooglePayConfiguration(Com.Stripe.Android.Paymentsheet.PaymentSheet.GooglePayConfiguration.Environment.Test!, "us")
 #endif
             });
 

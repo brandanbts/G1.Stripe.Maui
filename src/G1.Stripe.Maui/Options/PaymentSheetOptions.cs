@@ -6,6 +6,17 @@ namespace G1.Stripe.Maui.Options;
 public partial class PaymentSheetOptions
 {
     /// <summary>
+    /// Optional Stripe Connect account ID used to perform the payment on behalf of
+    /// another account. When set, the underlying Stripe SDK will send requests
+    /// with this account context (where supported).
+    ///
+    /// Note: For this to work, your backend must create the PaymentIntent for
+    /// the same connected account (using the Stripe-Account header or the
+    /// connected account's secret key).
+    /// </summary>
+    public string? StripeAccountId { get; set; }
+
+    /// <summary>
     /// Google Pay configuration. If null, Google Pay is disabled.
     /// </summary>
     public GooglePayOptions? GooglePay { get; set; }
@@ -81,6 +92,24 @@ public partial class PaymentSheetOptions
     /// Default: not saved unless required by payment method type.
     /// </summary>
     public bool? SetupFutureUsage { get; set; }
+
+    /// <summary>
+    /// Intent configuration for sending payment intents on behalf of another Stripe account (Connect).
+    /// Optional — omit if not using Stripe Connect.
+    /// </summary>
+    public PaymentSheetIntentConfigurationOptions? IntentConfiguration { get; set; }
+}
+
+/// <summary>
+/// Configuration for sending payment intents on behalf of another Stripe account (Connect).
+/// </summary>
+public class PaymentSheetIntentConfigurationOptions
+{
+    /// <summary>
+    /// The Stripe account ID to send the payment intent on behalf of (Connect account ID).
+    /// Required for Connect scenarios.
+    /// </summary>
+    public required string OnBehalfOf { get; set; }
 }
 
 public class GooglePayOptions

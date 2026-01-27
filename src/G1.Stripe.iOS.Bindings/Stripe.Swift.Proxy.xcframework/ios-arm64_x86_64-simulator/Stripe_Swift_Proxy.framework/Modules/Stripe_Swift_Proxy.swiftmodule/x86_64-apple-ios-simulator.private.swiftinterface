@@ -51,6 +51,12 @@ import _SwiftConcurrencyShims
   @objc public var allowsDelayedPaymentMethods: Swift.Bool
   @objc public var userInterfaceStyle: Stripe_Swift_Proxy.TSPSUserInterfaceStyle
   @objc public var paymentMethodOrder: [Swift.String]?
+  @objc public var intentConfiguration: Stripe_Swift_Proxy.TSPSIntentConfiguration?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(TSPSIntentConfiguration) public class TSPSIntentConfiguration : ObjectiveC.NSObject {
+  @objc public var onBehalfOf: Swift.String?
   @objc override dynamic public init()
   @objc deinit
 }
@@ -191,7 +197,6 @@ import _SwiftConcurrencyShims
   case SEPA
   case AUBECSDebit
   case bacsDebit
-  case sofort
   case UPI
   case netBanking
   case unknown

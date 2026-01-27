@@ -13,6 +13,12 @@ public class iOSPaymentSheet : IPaymentSheet
 
     public async Task<PaymentSheetResult> Open(PaymentSheetOptions options, CancellationToken ct = default)
     {
+        // If a Stripe Connect account is specified, send requests on behalf of that account
+        if (!string.IsNullOrWhiteSpace(options.StripeAccountId))
+        {
+            StripeCore.STPAPIClient.SharedClient.StripeAccount = options.StripeAccountId;
+        }
+
         var configuration = options.BuildPlatform();
 
         var ps = new TSPSPaymentSheet(options.ClientSecret, configuration);

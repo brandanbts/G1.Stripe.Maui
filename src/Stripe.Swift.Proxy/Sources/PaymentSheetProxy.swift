@@ -26,12 +26,24 @@ public class TSPSPaymentSheet: NSObject {
     @objc public convenience init(paymentIntentClientSecret: String, configuration: TSPSConfiguration) {
         self.init()
         let stripeConfiguration = configuration.toStripeConfiguration()
+        // Note: For onBehalfOf (Connect account) support, set it on STPAPIClient
+        // The IntentConfiguration API requires mode and confirmHandler for custom flows
+        if let onBehalfOf = configuration.intentConfiguration?.onBehalfOf {
+            let apiClient = StripeCore.STPAPIClient()
+            apiClient.stripeAccount = onBehalfOf
+        }
         self.paymentSheet = PaymentSheet(paymentIntentClientSecret: paymentIntentClientSecret, configuration: stripeConfiguration)
     }
     
     @objc public convenience init(setupIntentClientSecret: String, configuration: TSPSConfiguration) {
         self.init()
         let stripeConfiguration = configuration.toStripeConfiguration()
+        // Note: For onBehalfOf (Connect account) support, set it on STPAPIClient
+        // The IntentConfiguration API requires mode and confirmHandler for custom flows
+        if let onBehalfOf = configuration.intentConfiguration?.onBehalfOf {
+            let apiClient = StripeCore.STPAPIClient()
+            apiClient.stripeAccount = onBehalfOf
+        }
         self.paymentSheet = PaymentSheet(setupIntentClientSecret: setupIntentClientSecret, configuration: stripeConfiguration)
     }
     
@@ -71,6 +83,7 @@ public class TSPSConfiguration: NSObject {
     @objc public var allowsDelayedPaymentMethods: Bool = false
     @objc public var userInterfaceStyle: TSPSUserInterfaceStyle = .automatic
     @objc public var paymentMethodOrder: [String]?
+    @objc public var intentConfiguration: TSPSIntentConfiguration?
     
     @objc public override init() {
         super.init()
@@ -99,6 +112,27 @@ public class TSPSConfiguration: NSObject {
         
         config.paymentMethodOrder = self.paymentMethodOrder
         return config
+    }
+}
+
+// MARK: - Intent Configuration
+@objc(TSPSIntentConfiguration)
+public class TSPSIntentConfiguration: NSObject {
+    @objc public var onBehalfOf: String?
+    
+    @objc public override init() {
+        super.init()
+    }
+    
+    internal func toStripeIntentConfiguration(mode: PaymentSheet.IntentConfiguration.Mode, confirmHandler: @escaping PaymentSheet.IntentConfiguration.ConfirmHandler) -> PaymentSheet.IntentConfiguration {
+        return PaymentSheet.IntentConfiguration(
+            mode: mode,
+            paymentMethodTypes: nil,
+            onBehalfOf: self.onBehalfOf,
+            paymentMethodConfigurationId: nil,
+            confirmHandler: confirmHandler,
+            requireCVCRecollection: false
+        )
     }
 }
 

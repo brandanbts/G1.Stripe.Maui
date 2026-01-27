@@ -289,6 +289,15 @@ interface TSPSBillingDetailsCollectionConfiguration
     NativeHandle Constructor(TSPSCollectionMode name, TSPSCollectionMode email, TSPSCollectionMode phone, TSPSAddressCollectionMode address, bool attachDefaultsToPaymentMethod);
 }
 
+// @interface TSPSIntentConfiguration
+[BaseType(typeof(NSObject))]
+interface TSPSIntentConfiguration
+{
+    // @property (copy, nonatomic) NSString * _Nullable onBehalfOf;
+    [NullAllowed, Export("onBehalfOf")]
+    string OnBehalfOf { get; set; }
+}
+
 // @interface TSPSConfiguration
 [BaseType(typeof(NSObject))]
 interface TSPSConfiguration
@@ -328,6 +337,10 @@ interface TSPSConfiguration
     // @property (nonatomic) enum TSPSUserInterfaceStyle userInterfaceStyle;
     [Export("userInterfaceStyle", ArgumentSemantic.Assign)]
     TSPSUserInterfaceStyle UserInterfaceStyle { get; set; }
+
+    // @property (nonatomic, strong) TSPSIntentConfiguration * _Nullable intentConfiguration;
+    [NullAllowed, Export("intentConfiguration", ArgumentSemantic.Strong)]
+    TSPSIntentConfiguration IntentConfiguration { get; set; }
 }
 
 // @interface TSPSCustomerConfiguration

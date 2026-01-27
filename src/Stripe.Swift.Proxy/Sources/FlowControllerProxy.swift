@@ -14,16 +14,22 @@ public class TSPSPaymentSheetFlowController: NSObject {
     ) {
         let stripeConfiguration = configuration.toStripeConfiguration()
         
-        PaymentSheet.FlowController.create(
-            paymentIntentClientSecret: paymentIntentClientSecret,
-            configuration: stripeConfiguration
-        ) { result in
-            switch result {
-            case .success(let flowController):
+        // Set onBehalfOf on STPAPIClient if provided
+        if let onBehalfOf = configuration.intentConfiguration?.onBehalfOf {
+            let apiClient = StripeCore.STPAPIClient()
+            apiClient.stripeAccount = onBehalfOf
+        }
+        
+        Task {
+            do {
+                let flowController = try await PaymentSheet.FlowController.create(
+                    paymentIntentClientSecret: paymentIntentClientSecret,
+                    configuration: stripeConfiguration
+                )
                 let wrapper = TSPSPaymentSheetFlowController()
                 wrapper.flowController = flowController
                 completion(wrapper, nil)
-            case .failure(let error):
+            } catch {
                 completion(nil, error)
             }
         }
@@ -36,16 +42,22 @@ public class TSPSPaymentSheetFlowController: NSObject {
     ) {
         let stripeConfiguration = configuration.toStripeConfiguration()
         
-        PaymentSheet.FlowController.create(
-            setupIntentClientSecret: setupIntentClientSecret,
-            configuration: stripeConfiguration
-        ) { result in
-            switch result {
-            case .success(let flowController):
+        // Set onBehalfOf on STPAPIClient if provided
+        if let onBehalfOf = configuration.intentConfiguration?.onBehalfOf {
+            let apiClient = StripeCore.STPAPIClient()
+            apiClient.stripeAccount = onBehalfOf
+        }
+        
+        Task {
+            do {
+                let flowController = try await PaymentSheet.FlowController.create(
+                    setupIntentClientSecret: setupIntentClientSecret,
+                    configuration: stripeConfiguration
+                )
                 let wrapper = TSPSPaymentSheetFlowController()
                 wrapper.flowController = flowController
                 completion(wrapper, nil)
-            case .failure(let error):
+            } catch {
                 completion(nil, error)
             }
         }

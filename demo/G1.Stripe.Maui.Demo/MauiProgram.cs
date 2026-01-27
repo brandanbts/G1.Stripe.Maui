@@ -1,7 +1,10 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Runtime.Versioning;
+using Microsoft.Extensions.Logging;
 
+[assembly: RequiresPreviewFeatures]
 namespace G1.Stripe.Maui.Demo
 {
+    [RequiresPreviewFeatures]
     public static class MauiProgram
     {
         public static MauiApp CreateMauiApp()

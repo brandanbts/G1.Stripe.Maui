@@ -39,6 +39,15 @@ partial class PaymentSheetOptions
             configuration.Customer = customer.ToPlatform();
         }
 
+        if (IntentConfiguration is { } intentConfig)
+        {
+            var intentConfiguration = new TSPSIntentConfiguration
+            {
+                OnBehalfOf = intentConfig.OnBehalfOf
+            };
+            configuration.IntentConfiguration = intentConfiguration;
+        }
+
         if (Appearance is { } app)
         {
             var currentStyle = UIScreen.MainScreen.TraitCollection.UserInterfaceStyle;

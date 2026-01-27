@@ -458,6 +458,7 @@ typedef SWIFT_ENUM(NSInteger, TSPSCardBrand, open) {
 
 @class TSPSCustomerConfiguration;
 enum TSPSUserInterfaceStyle : NSInteger;
+@class TSPSIntentConfiguration;
 SWIFT_CLASS_NAMED("TSPSConfiguration")
 @interface TSPSConfiguration : NSObject
 @property (nonatomic, copy) NSString * _Nullable merchantDisplayName;
@@ -470,6 +471,7 @@ SWIFT_CLASS_NAMED("TSPSConfiguration")
 @property (nonatomic) BOOL allowsDelayedPaymentMethods;
 @property (nonatomic) enum TSPSUserInterfaceStyle userInterfaceStyle;
 @property (nonatomic, copy) NSArray<NSString *> * _Nullable paymentMethodOrder;
+@property (nonatomic, strong) TSPSIntentConfiguration * _Nullable intentConfiguration;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -480,6 +482,12 @@ SWIFT_CLASS_NAMED("TSPSCustomerConfiguration")
 - (nonnull instancetype)initWithId:(NSString * _Nonnull)id ephemeralKeySecret:(NSString * _Nonnull)ephemeralKeySecret OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS_NAMED("TSPSIntentConfiguration")
+@interface TSPSIntentConfiguration : NSObject
+@property (nonatomic, copy) NSString * _Nullable onBehalfOf;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class TSPSPaymentOption;
@@ -545,10 +553,9 @@ typedef SWIFT_ENUM(NSInteger, TSPSPaymentMethodType, open) {
   TSPSPaymentMethodTypeSEPA = 3,
   TSPSPaymentMethodTypeAUBECSDebit = 4,
   TSPSPaymentMethodTypeBacsDebit = 5,
-  TSPSPaymentMethodTypeSofort = 6,
-  TSPSPaymentMethodTypeUPI = 7,
-  TSPSPaymentMethodTypeNetBanking = 8,
-  TSPSPaymentMethodTypeUnknown = 9,
+  TSPSPaymentMethodTypeUPI = 6,
+  TSPSPaymentMethodTypeNetBanking = 7,
+  TSPSPaymentMethodTypeUnknown = 8,
 };
 
 @class UIImage;

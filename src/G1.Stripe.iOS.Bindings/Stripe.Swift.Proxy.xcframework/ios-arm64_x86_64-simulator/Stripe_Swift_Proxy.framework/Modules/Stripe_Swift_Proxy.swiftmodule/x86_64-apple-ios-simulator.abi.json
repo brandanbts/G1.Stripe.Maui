@@ -1970,6 +1970,123 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "intentConfiguration",
+            "printedName": "intentConfiguration",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Stripe_Swift_Proxy.TSPSIntentConfiguration?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TSPSIntentConfiguration",
+                    "printedName": "Stripe_Swift_Proxy.TSPSIntentConfiguration",
+                    "usr": "c:@M@Stripe_Swift_Proxy@objc(cs)TSPSIntentConfiguration"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Stripe_Swift_Proxy@objc(cs)TSPSConfiguration(py)intentConfiguration",
+            "mangledName": "$s18Stripe_Swift_Proxy17TSPSConfigurationC19intentConfigurationAA010TSPSIntentF0CSgvp",
+            "moduleName": "Stripe_Swift_Proxy",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Stripe_Swift_Proxy.TSPSIntentConfiguration?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TSPSIntentConfiguration",
+                        "printedName": "Stripe_Swift_Proxy.TSPSIntentConfiguration",
+                        "usr": "c:@M@Stripe_Swift_Proxy@objc(cs)TSPSIntentConfiguration"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Stripe_Swift_Proxy@objc(cs)TSPSConfiguration(im)intentConfiguration",
+                "mangledName": "$s18Stripe_Swift_Proxy17TSPSConfigurationC19intentConfigurationAA010TSPSIntentF0CSgvg",
+                "moduleName": "Stripe_Swift_Proxy",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Stripe_Swift_Proxy.TSPSIntentConfiguration?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TSPSIntentConfiguration",
+                        "printedName": "Stripe_Swift_Proxy.TSPSIntentConfiguration",
+                        "usr": "c:@M@Stripe_Swift_Proxy@objc(cs)TSPSIntentConfiguration"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Stripe_Swift_Proxy@objc(cs)TSPSConfiguration(im)setIntentConfiguration:",
+                "mangledName": "$s18Stripe_Swift_Proxy17TSPSConfigurationC19intentConfigurationAA010TSPSIntentF0CSgvs",
+                "moduleName": "Stripe_Swift_Proxy",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18Stripe_Swift_Proxy17TSPSConfigurationC19intentConfigurationAA010TSPSIntentF0CSgvM",
+                "mangledName": "$s18Stripe_Swift_Proxy17TSPSConfigurationC19intentConfigurationAA010TSPSIntentF0CSgvM",
+                "moduleName": "Stripe_Swift_Proxy",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -2001,6 +2118,236 @@
         "mangledName": "$s18Stripe_Swift_Proxy17TSPSConfigurationC",
         "moduleName": "Stripe_Swift_Proxy",
         "objc_name": "TSPSConfiguration",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "TSPSIntentConfiguration",
+        "printedName": "TSPSIntentConfiguration",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "onBehalfOf",
+            "printedName": "onBehalfOf",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Stripe_Swift_Proxy@objc(cs)TSPSIntentConfiguration(py)onBehalfOf",
+            "mangledName": "$s18Stripe_Swift_Proxy23TSPSIntentConfigurationC10onBehalfOfSSSgvp",
+            "moduleName": "Stripe_Swift_Proxy",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Stripe_Swift_Proxy@objc(cs)TSPSIntentConfiguration(im)onBehalfOf",
+                "mangledName": "$s18Stripe_Swift_Proxy23TSPSIntentConfigurationC10onBehalfOfSSSgvg",
+                "moduleName": "Stripe_Swift_Proxy",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Stripe_Swift_Proxy@objc(cs)TSPSIntentConfiguration(im)setOnBehalfOf:",
+                "mangledName": "$s18Stripe_Swift_Proxy23TSPSIntentConfigurationC10onBehalfOfSSSgvs",
+                "moduleName": "Stripe_Swift_Proxy",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:18Stripe_Swift_Proxy23TSPSIntentConfigurationC10onBehalfOfSSSgvM",
+                "mangledName": "$s18Stripe_Swift_Proxy23TSPSIntentConfigurationC10onBehalfOfSSSgvM",
+                "moduleName": "Stripe_Swift_Proxy",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "TSPSIntentConfiguration",
+                "printedName": "Stripe_Swift_Proxy.TSPSIntentConfiguration",
+                "usr": "c:@M@Stripe_Swift_Proxy@objc(cs)TSPSIntentConfiguration"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Stripe_Swift_Proxy@objc(cs)TSPSIntentConfiguration(im)init",
+            "mangledName": "$s18Stripe_Swift_Proxy23TSPSIntentConfigurationCACycfc",
+            "moduleName": "Stripe_Swift_Proxy",
+            "overriding": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Stripe_Swift_Proxy@objc(cs)TSPSIntentConfiguration",
+        "mangledName": "$s18Stripe_Swift_Proxy23TSPSIntentConfigurationC",
+        "moduleName": "Stripe_Swift_Proxy",
+        "objc_name": "TSPSIntentConfiguration",
         "declAttributes": [
           "AccessControl",
           "ObjC",
@@ -9672,47 +10019,6 @@
           },
           {
             "kind": "Var",
-            "name": "sofort",
-            "printedName": "sofort",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Stripe_Swift_Proxy.TSPSPaymentMethodType.Type) -> Stripe_Swift_Proxy.TSPSPaymentMethodType",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "TSPSPaymentMethodType",
-                    "printedName": "Stripe_Swift_Proxy.TSPSPaymentMethodType",
-                    "usr": "c:@M@Stripe_Swift_Proxy@E@TSPSPaymentMethodType"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "Stripe_Swift_Proxy.TSPSPaymentMethodType.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "TSPSPaymentMethodType",
-                        "printedName": "Stripe_Swift_Proxy.TSPSPaymentMethodType",
-                        "usr": "c:@M@Stripe_Swift_Proxy@E@TSPSPaymentMethodType"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "c:@M@Stripe_Swift_Proxy@E@TSPSPaymentMethodType@TSPSPaymentMethodTypeSofort",
-            "mangledName": "$s18Stripe_Swift_Proxy21TSPSPaymentMethodTypeO6sofortyA2CmF",
-            "moduleName": "Stripe_Swift_Proxy",
-            "declAttributes": [
-              "ObjC"
-            ],
-            "fixedbinaryorder": 6
-          },
-          {
-            "kind": "Var",
             "name": "UPI",
             "printedName": "UPI",
             "children": [
@@ -9748,9 +10054,10 @@
             "mangledName": "$s18Stripe_Swift_Proxy21TSPSPaymentMethodTypeO3UPIyA2CmF",
             "moduleName": "Stripe_Swift_Proxy",
             "declAttributes": [
+              "RawDocComment",
               "ObjC"
             ],
-            "fixedbinaryorder": 7
+            "fixedbinaryorder": 6
           },
           {
             "kind": "Var",
@@ -9791,7 +10098,7 @@
             "declAttributes": [
               "ObjC"
             ],
-            "fixedbinaryorder": 8
+            "fixedbinaryorder": 7
           },
           {
             "kind": "Var",
@@ -9832,7 +10139,7 @@
             "declAttributes": [
               "ObjC"
             ],
-            "fixedbinaryorder": 9
+            "fixedbinaryorder": 8
           },
           {
             "kind": "Constructor",
@@ -13918,247 +14225,240 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
       "kind": "IntegerLiteral",
       "offset": 191,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
       "kind": "IntegerLiteral",
       "offset": 202,
       "length": 8,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
       "kind": "IntegerLiteral",
       "offset": 220,
       "length": 6,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
       "kind": "IntegerLiteral",
       "offset": 331,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
       "kind": "IntegerLiteral",
       "offset": 342,
       "length": 11,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
       "kind": "IntegerLiteral",
       "offset": 363,
       "length": 10,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
       "kind": "BooleanLiteral",
-      "offset": 2640,
+      "offset": 3360,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 5954,
+      "offset": 7473,
       "length": 5,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 5973,
+      "offset": 7492,
       "length": 4,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 6407,
+      "offset": 7926,
       "length": 5,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentSheetProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 6426,
+      "offset": 7945,
       "length": 6,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/AppearanceProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/AppearanceProxy.swift",
       "kind": "FloatLiteral",
       "offset": 679,
       "length": 3,
       "value": "6.0"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/AppearanceProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/AppearanceProxy.swift",
       "kind": "FloatLiteral",
       "offset": 727,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/AppearanceProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/AppearanceProxy.swift",
       "kind": "FloatLiteral",
       "offset": 1627,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/AppearanceProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/AppearanceProxy.swift",
       "kind": "FloatLiteral",
       "offset": 4267,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/AppearanceProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/AppearanceProxy.swift",
       "kind": "FloatLiteral",
       "offset": 5362,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/AppearanceProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/AppearanceProxy.swift",
       "kind": "FloatLiteral",
       "offset": 5455,
       "length": 3,
       "value": "0.0"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
       "offset": 154,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
       "offset": 165,
       "length": 11,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
       "offset": 186,
       "length": 5,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
       "offset": 201,
       "length": 4,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
       "offset": 215,
       "length": 11,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
       "offset": 236,
       "length": 9,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 255,
-      "length": 6,
+      "offset": 314,
+      "length": 3,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 271,
-      "length": 3,
+      "offset": 327,
+      "length": 10,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 284,
-      "length": 10,
+      "offset": 347,
+      "length": 7,
       "value": "8"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 304,
-      "length": 7,
-      "value": "9"
-    },
-    {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1444,
+      "offset": 1573,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 1455,
+      "offset": 1584,
       "length": 4,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 1469,
+      "offset": 1598,
       "length": 10,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 1489,
+      "offset": 1618,
       "length": 8,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 1507,
+      "offset": 1636,
       "length": 3,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 1520,
+      "offset": 1649,
       "length": 10,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 1540,
+      "offset": 1669,
       "length": 8,
       "value": "6"
     },
     {
-      "filePath": "\/Users\/bym\/Documents\/source\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
+      "filePath": "\/Users\/bnaef\/Developer\/G1.Stripe.Maui\/src\/Stripe.Swift.Proxy\/Sources\/PaymentMethodProxy.swift",
       "kind": "IntegerLiteral",
-      "offset": 1558,
+      "offset": 1687,
       "length": 7,
       "value": "7"
     }
