@@ -20,16 +20,27 @@ public class AndroidPaymentSheet : IPaymentSheet
     private PaymentSheet? _sheet;
 
     private TaskCompletionSource<SharedPSResult>? _tcs;
+    
+    private string? _publishableKey;
 
     public void Initialize(string publishableKey)
     {
         ArgumentNullException.ThrowIfNull(_capturedActivity);
+        _publishableKey = publishableKey;
         PaymentConfiguration.Init(_capturedActivity, publishableKey);
     }
 
     public async Task<SharedPSResult> Open(PaymentSheetOptions options, CancellationToken ct = default)
     {
         ArgumentNullException.ThrowIfNull(_sheet);
+
+        // If a Stripe Connect account is specified, reinitialize PaymentConfiguration with the account ID
+        // In Stripe Android SDK, the account ID needs to be set when initializing PaymentConfiguration
+        if (!string.IsNullOrWhiteSpace(options.StripeAccountId) && !string.IsNullOrWhiteSpace(_publishableKey))
+        {
+            // Reinitialize PaymentConfiguration with the Stripe account ID for Connect scenarios
+            PaymentConfiguration.Init(_capturedActivity!, _publishableKey, options.StripeAccountId);
+        }
 
         var configuration = options.BuildPlatform();
 

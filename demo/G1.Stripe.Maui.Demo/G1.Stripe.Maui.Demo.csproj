@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net10.0-ios</TargetFrameworks>
+		<TargetFrameworks>net9.0-ios;net9.0-android</TargetFrameworks>
 		<EnablePreviewFeatures>True</EnablePreviewFeatures>
 		<GenerateRequiresPreviewFeaturesAttribute>False</GenerateRequiresPreviewFeaturesAttribute>
 		<LangVersion>preview</LangVersion>
@@ -11,6 +11,7 @@
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+
 
 		<!-- Display name -->
 		<ApplicationTitle>G1.Stripe.Maui.Demo</ApplicationTitle>
@@ -27,6 +28,7 @@
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -51,10 +53,16 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 	</ItemGroup>
-
 	<ItemGroup>
 		<!-- Project reference to use local G1.Stripe.Maui instead of NuGet package -->
 		<ProjectReference Include="../../src/G1.Stripe.Maui/G1.Stripe.Maui.csproj" />
+		<!--<PackageReference Include="G1.Stripe.Maui" Version="0.0.14-deta" />-->
+		<!--<PackageReference Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" Include="G1.Stripe.Android.Bindings" Version="0.0.15-beta" />-->
 	</ItemGroup>
+	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
+		<PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.9.2.1" />
+		<PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData.Ktx" Version="2.9.2.1" />
+	</ItemGroup>
+
 
 </Project>
