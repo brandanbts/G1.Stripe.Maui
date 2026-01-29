@@ -568,10 +568,14 @@ SWIFT_CLASS_NAMED("TSPSPaymentOption")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+enum TSPSPaymentSheetIntentMode : NSInteger;
 @class UIViewController;
 @class NSError;
 SWIFT_CLASS_NAMED("TSPSPaymentSheet")
 @interface TSPSPaymentSheet : NSObject
+/// Single initializer that maps to the correct Stripe SDK init (paymentIntentClientSecret or setupIntentClientSecret).
+/// Use this from C# so both intent types can be called with a distinct signature.
+- (nonnull instancetype)initWithClientSecret:(NSString * _Nonnull)clientSecret intentMode:(enum TSPSPaymentSheetIntentMode)intentMode configuration:(TSPSConfiguration * _Nonnull)configuration;
 - (nonnull instancetype)initWithPaymentIntentClientSecret:(NSString * _Nonnull)paymentIntentClientSecret configuration:(TSPSConfiguration * _Nonnull)configuration;
 - (nonnull instancetype)initWithSetupIntentClientSecret:(NSString * _Nonnull)setupIntentClientSecret configuration:(TSPSConfiguration * _Nonnull)configuration;
 + (void)resetCustomer;
@@ -587,6 +591,11 @@ SWIFT_CLASS_NAMED("TSPSPaymentSheetFlowController")
 - (void)confirmFrom:(UIViewController * _Nonnull)presentingViewController completion:(void (^ _Nonnull)(enum TSPSPaymentSheetResult, NSError * _Nullable))completion;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+typedef SWIFT_ENUM(NSInteger, TSPSPaymentSheetIntentMode, open) {
+  TSPSPaymentSheetIntentModePaymentIntent = 0,
+  TSPSPaymentSheetIntentModeSetupIntent = 1,
+};
 
 typedef SWIFT_ENUM(NSInteger, TSPSPaymentSheetResult, open) {
   TSPSPaymentSheetResultCompleted = 0,
@@ -1190,10 +1199,14 @@ SWIFT_CLASS_NAMED("TSPSPaymentOption")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+enum TSPSPaymentSheetIntentMode : NSInteger;
 @class UIViewController;
 @class NSError;
 SWIFT_CLASS_NAMED("TSPSPaymentSheet")
 @interface TSPSPaymentSheet : NSObject
+/// Single initializer that maps to the correct Stripe SDK init (paymentIntentClientSecret or setupIntentClientSecret).
+/// Use this from C# so both intent types can be called with a distinct signature.
+- (nonnull instancetype)initWithClientSecret:(NSString * _Nonnull)clientSecret intentMode:(enum TSPSPaymentSheetIntentMode)intentMode configuration:(TSPSConfiguration * _Nonnull)configuration;
 - (nonnull instancetype)initWithPaymentIntentClientSecret:(NSString * _Nonnull)paymentIntentClientSecret configuration:(TSPSConfiguration * _Nonnull)configuration;
 - (nonnull instancetype)initWithSetupIntentClientSecret:(NSString * _Nonnull)setupIntentClientSecret configuration:(TSPSConfiguration * _Nonnull)configuration;
 + (void)resetCustomer;
@@ -1209,6 +1222,11 @@ SWIFT_CLASS_NAMED("TSPSPaymentSheetFlowController")
 - (void)confirmFrom:(UIViewController * _Nonnull)presentingViewController completion:(void (^ _Nonnull)(enum TSPSPaymentSheetResult, NSError * _Nullable))completion;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+typedef SWIFT_ENUM(NSInteger, TSPSPaymentSheetIntentMode, open) {
+  TSPSPaymentSheetIntentModePaymentIntent = 0,
+  TSPSPaymentSheetIntentModeSetupIntent = 1,
+};
 
 typedef SWIFT_ENUM(NSInteger, TSPSPaymentSheetResult, open) {
   TSPSPaymentSheetResultCompleted = 0,

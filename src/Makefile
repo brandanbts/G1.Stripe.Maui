@@ -41,6 +41,8 @@ build-simulator:
 		SKIP_INSTALL=NO
 
 create-xcframework:
+	@echo "📦 Creating xcframework..."
+	@rm -rf $(OUTPUT_PATH)/Stripe.Swift.Proxy.xcframework
 	$(XCODEBUILD) -create-xcframework \
 		-framework $(ARCHIVE_BASE_PATH)/Stripe.Swift.Proxy-ios.xcarchive/Products/Library/Frameworks/Stripe_Swift_Proxy.framework \
 		-framework $(ARCHIVE_BASE_PATH)/Stripe.Swift.Proxy-simulator.xcarchive/Products/Library/Frameworks/Stripe_Swift_Proxy.framework \
@@ -67,4 +69,5 @@ g-stripe-core:
 clean:
 	@echo "🧹 Cleaning up..."
 	rm -rf $(ARCHIVE_BASE_PATH)
+	rm -rf $(OUTPUT_PATH)
 	rm -rf $(SHARPIE_OUTPUT_PATH)

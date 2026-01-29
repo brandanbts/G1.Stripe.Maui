@@ -1,5 +1,6 @@
-﻿using Foundation;
+using Foundation;
 using G1.Stripe.Maui.Options;
+using ObjCRuntime;
 using Stripe;
 
 namespace G1.Stripe.Maui;
@@ -13,6 +14,8 @@ public class iOSPaymentSheet : IPaymentSheet
 
     public async Task<PaymentSheetResult> Open(PaymentSheetOptions options, CancellationToken ct = default)
     {
+        var (clientSecret, intentMode) = GetIntentSecretAndMode(options);
+
         // If a Stripe Connect account is specified, send requests on behalf of that account
         if (!string.IsNullOrWhiteSpace(options.StripeAccountId))
         {
@@ -21,7 +24,21 @@ public class iOSPaymentSheet : IPaymentSheet
 
         var configuration = options.BuildPlatform();
 
-        var ps = new TSPSPaymentSheet(options.ClientSecret, configuration);
+        TSPSPaymentSheet ps;
+        try
+        {
+            // Use the intent-mode initializer so the iOS SDK (Stripe) receives the correct client type (PaymentIntent vs SetupIntent).
+            ps = new TSPSPaymentSheet(clientSecret, intentMode, configuration);
+        }
+        catch (ObjCException ex)
+        {
+            throw new InvalidOperationException(
+                "Stripe payment sheet failed (native iOS). If you are using PaymentIntentClientSecret or SetupIntentClientSecret, " +
+                "rebuild the Stripe.Swift.Proxy xcframework: from src run 'make build-ios build-simulator create-xcframework', " +
+                "then copy xcframework/Stripe.Swift.Proxy.xcframework to G1.Stripe.iOS.Bindings/. See BUILD_INSTRUCTIONS.md. " +
+                "Original error: " + ex.Message,
+                ex);
+        }
 
         var tcs = new TaskCompletionSource<PaymentSheetResult>();
         using (ct.Register(() => tcs.TrySetCanceled(ct)))
@@ -60,5 +77,21 @@ public class iOSPaymentSheet : IPaymentSheet
         return error is null 
             ? new ImpossiblePaymentSheetException("Internal error occured in stripe payment sheet") //should never be a case
             : new NSErrorException(error);
+    }
+
+    private static (string clientSecret, global::Stripe.TSPSPaymentSheetIntentMode intentMode) GetIntentSecretAndMode(PaymentSheetOptions options)
+    {
+        var hasSetup = !string.IsNullOrWhiteSpace(options.SetupIntentClientSecret);
+        var paymentSecret = options.PaymentIntentClientSecret ?? options.ClientSecret;
+        var hasPayment = !string.IsNullOrWhiteSpace(paymentSecret);
+
+        if (hasSetup && hasPayment)
+            throw new ArgumentException("Set either PaymentIntent client secret (ClientSecret or PaymentIntentClientSecret) or SetupIntentClientSecret, not both.", nameof(options));
+        if (!hasSetup && !hasPayment)
+            throw new ArgumentException("Set either PaymentIntent client secret (ClientSecret or PaymentIntentClientSecret) or SetupIntentClientSecret.", nameof(options));
+
+        if (hasSetup)
+            return (options.SetupIntentClientSecret!, global::Stripe.TSPSPaymentSheetIntentMode.SetupIntent);
+        return (paymentSecret!, global::Stripe.TSPSPaymentSheetIntentMode.PaymentIntent);
     }
 }

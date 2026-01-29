@@ -32,7 +32,17 @@ import _SwiftConcurrencyShims
     get
   }
 }
+@objc public enum TSPSPaymentSheetIntentMode : Swift.Int {
+  case paymentIntent = 0
+  case setupIntent = 1
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc(TSPSPaymentSheet) public class TSPSPaymentSheet : ObjectiveC.NSObject {
+  @objc convenience public init(clientSecret: Swift.String, intentMode: Stripe_Swift_Proxy.TSPSPaymentSheetIntentMode, configuration: Stripe_Swift_Proxy.TSPSConfiguration)
   @objc convenience public init(paymentIntentClientSecret: Swift.String, configuration: Stripe_Swift_Proxy.TSPSConfiguration)
   @objc convenience public init(setupIntentClientSecret: Swift.String, configuration: Stripe_Swift_Proxy.TSPSConfiguration)
   @objc public static func resetCustomer()
@@ -293,6 +303,9 @@ extension Stripe_Swift_Proxy.TSPSPaymentSheetResult : Swift.RawRepresentable {}
 extension Stripe_Swift_Proxy.TSPSUserInterfaceStyle : Swift.Equatable {}
 extension Stripe_Swift_Proxy.TSPSUserInterfaceStyle : Swift.Hashable {}
 extension Stripe_Swift_Proxy.TSPSUserInterfaceStyle : Swift.RawRepresentable {}
+extension Stripe_Swift_Proxy.TSPSPaymentSheetIntentMode : Swift.Equatable {}
+extension Stripe_Swift_Proxy.TSPSPaymentSheetIntentMode : Swift.Hashable {}
+extension Stripe_Swift_Proxy.TSPSPaymentSheetIntentMode : Swift.RawRepresentable {}
 extension Stripe_Swift_Proxy.TSPSBillingDetailsCollectionConfiguration.TSPSAddressCollectionMode : Swift.Equatable {}
 extension Stripe_Swift_Proxy.TSPSBillingDetailsCollectionConfiguration.TSPSAddressCollectionMode : Swift.Hashable {}
 extension Stripe_Swift_Proxy.TSPSBillingDetailsCollectionConfiguration.TSPSAddressCollectionMode : Swift.RawRepresentable {}

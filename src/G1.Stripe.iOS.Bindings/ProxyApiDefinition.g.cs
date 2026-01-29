@@ -518,6 +518,10 @@ interface TSPSPaymentSheet
     [Export("initWithPaymentIntentClientSecret:configuration:")]
     NativeHandle Constructor(string paymentIntentClientSecret, TSPSConfiguration configuration);
 
+    // -(instancetype _Nonnull)initWithClientSecret:(NSString * _Nonnull)clientSecret intentMode:(enum TSPSPaymentSheetIntentMode)intentMode configuration:(TSPSConfiguration * _Nonnull)configuration;
+    [Export("initWithClientSecret:intentMode:configuration:")]
+    NativeHandle Constructor(string clientSecret, TSPSPaymentSheetIntentMode intentMode, TSPSConfiguration configuration);
+
     // +(void)resetCustomer;
     [Static]
     [Export("resetCustomer")]

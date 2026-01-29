@@ -1,4 +1,4 @@
-﻿using AndroidX.Activity;
+using AndroidX.Activity;
 using Com.Stripe.Android;
 using Com.Stripe.Android.Paymentsheet;
 using G1.Stripe.Maui.Options;
@@ -34,6 +34,17 @@ public class AndroidPaymentSheet : IPaymentSheet
     {
         ArgumentNullException.ThrowIfNull(_sheet);
 
+        // Resolve payment intent secret (Android currently supports PaymentIntent only; SetupIntent not wired).
+        var paymentSecret = options.PaymentIntentClientSecret ?? options.ClientSecret;
+        var hasSetup = !string.IsNullOrWhiteSpace(options.SetupIntentClientSecret);
+        var hasPayment = !string.IsNullOrWhiteSpace(paymentSecret);
+        if (hasSetup && hasPayment)
+            throw new ArgumentException("Set either PaymentIntent client secret (ClientSecret or PaymentIntentClientSecret) or SetupIntentClientSecret, not both.", nameof(options));
+        if (!hasSetup && !hasPayment)
+            throw new ArgumentException("Set either PaymentIntent client secret (ClientSecret or PaymentIntentClientSecret) or SetupIntentClientSecret.", nameof(options));
+        if (hasSetup)
+            throw new NotImplementedException("SetupIntentClientSecret is not yet supported on Android. Use PaymentIntent client secret for now.");
+
         // If a Stripe Connect account is specified, reinitialize PaymentConfiguration with the account ID
         // In Stripe Android SDK, the account ID needs to be set when initializing PaymentConfiguration
         if (!string.IsNullOrWhiteSpace(options.StripeAccountId) && !string.IsNullOrWhiteSpace(_publishableKey))
@@ -47,7 +58,7 @@ public class AndroidPaymentSheet : IPaymentSheet
         _tcs = new TaskCompletionSource<SharedPSResult>();
         using (ct.Register(() => _tcs.TrySetCanceled(ct)))
         {
-            _sheet.PresentWithPaymentIntent(options.ClientSecret, configuration);
+            _sheet.PresentWithPaymentIntent(paymentSecret!, configuration);
             return await _tcs.Task.ConfigureAwait(false);
         }
     }

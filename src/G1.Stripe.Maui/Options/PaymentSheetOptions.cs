@@ -27,10 +27,25 @@ public partial class PaymentSheetOptions
     public ApplePayOptions? ApplePay { get; set; }
 
     /// <summary>
-    /// The client secret of the PaymentIntent or SetupIntent created on your server.
-    /// Required to initialize and present the PaymentSheet.
+    /// The client secret of the PaymentIntent created on your server (one-time payments).
+    /// Use this or <see cref="ClientSecret"/> for PaymentIntent; use <see cref="SetupIntentClientSecret"/> for SetupIntent.
+    /// Exactly one of PaymentIntent secret (<see cref="ClientSecret"/> or <see cref="PaymentIntentClientSecret"/>) or <see cref="SetupIntentClientSecret"/> must be set.
     /// </summary>
-    public required string ClientSecret { get; set; }
+    public string? ClientSecret { get; set; }
+
+    /// <summary>
+    /// The client secret of the PaymentIntent created on your server (one-time payments).
+    /// When set, used instead of <see cref="ClientSecret"/> so the iOS/Android SDK uses the PaymentIntent API.
+    /// Exactly one of PaymentIntent secret (<see cref="ClientSecret"/> or <see cref="PaymentIntentClientSecret"/>) or <see cref="SetupIntentClientSecret"/> must be set.
+    /// </summary>
+    public string? PaymentIntentClientSecret { get; set; }
+
+    /// <summary>
+    /// The client secret of the SetupIntent created on your server (e.g. saving a payment method for future use).
+    /// When set, the iOS/Android SDK uses the SetupIntent API so Stripe recognizes the correct intent type.
+    /// Exactly one of PaymentIntent secret (<see cref="ClientSecret"/> or <see cref="PaymentIntentClientSecret"/>) or <see cref="SetupIntentClientSecret"/> must be set.
+    /// </summary>
+    public string? SetupIntentClientSecret { get; set; }
 
     /// <summary>
     /// Merchant name displayed at the top of the PaymentSheet and in Apple/Google Pay.
