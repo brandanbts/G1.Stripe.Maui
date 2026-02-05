@@ -14,7 +14,7 @@ public class iOSPaymentSheet : IPaymentSheet
 
     public async Task<PaymentSheetResult> Open(PaymentSheetOptions options, CancellationToken ct = default)
     {
-        var (clientSecret, intentMode) = GetIntentSecretAndMode(options);
+        var (clientSecret, isSetupIntent) = GetIntentSecretAndMode(options);
 
         // If a Stripe Connect account is specified, send requests on behalf of that account
         if (!string.IsNullOrWhiteSpace(options.StripeAccountId))
@@ -27,8 +27,10 @@ public class iOSPaymentSheet : IPaymentSheet
         TSPSPaymentSheet ps;
         try
         {
-            // Use the intent-mode initializer so the iOS SDK (Stripe) receives the correct client type (PaymentIntent vs SetupIntent).
-            ps = new TSPSPaymentSheet(clientSecret, intentMode, configuration);
+            // Use separate entry points to avoid enum marshalling issues on device (32/64-bit).
+            ps = isSetupIntent
+                ? TSPSPaymentSheet.CreateWithSetupIntent(clientSecret, configuration)
+                : new TSPSPaymentSheet(clientSecret, configuration);
         }
         catch (ObjCException ex)
         {
@@ -79,7 +81,7 @@ public class iOSPaymentSheet : IPaymentSheet
             : new NSErrorException(error);
     }
 
-    private static (string clientSecret, global::Stripe.TSPSPaymentSheetIntentMode intentMode) GetIntentSecretAndMode(PaymentSheetOptions options)
+    private static (string clientSecret, bool isSetupIntent) GetIntentSecretAndMode(PaymentSheetOptions options)
     {
         var hasSetup = !string.IsNullOrWhiteSpace(options.SetupIntentClientSecret);
         var paymentSecret = options.PaymentIntentClientSecret ?? options.ClientSecret;
@@ -91,7 +93,7 @@ public class iOSPaymentSheet : IPaymentSheet
             throw new ArgumentException("Set either PaymentIntent client secret (ClientSecret or PaymentIntentClientSecret) or SetupIntentClientSecret.", nameof(options));
 
         if (hasSetup)
-            return (options.SetupIntentClientSecret!, global::Stripe.TSPSPaymentSheetIntentMode.SetupIntent);
-        return (paymentSecret!, global::Stripe.TSPSPaymentSheetIntentMode.PaymentIntent);
+            return (options.SetupIntentClientSecret!, true);
+        return (paymentSecret!, false);
     }
 }

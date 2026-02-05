@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Stripe_Swift_Proxy-Swift.h</key>
 		<data>
-		lNtLfKzamY6m94UBwgohgimPhAY=
+		osrBmcaMbIb90iLsUIz5qxizGfo=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -14,43 +14,43 @@
 		</data>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		kWKBvdmi98UxEuaTM80tsVgVsdM=
+		mU29SdJLs7dBwbTdFY57zazDf04=
 		</data>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		+qbWUSTWSA0ch0ZsEN23/hB4eTA=
+		GhWFM26iOSXJDX8GC3ovzdg1YmQ=
 		</data>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		vKCdNfD3Yo5f0h/i2if1sA4Zgh4=
+		dhKqzMe+zrFHDaOyQ6+gaCAN2JQ=
 		</data>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		+qbWUSTWSA0ch0ZsEN23/hB4eTA=
+		GhWFM26iOSXJDX8GC3ovzdg1YmQ=
 		</data>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		e+HeGeQJEAIQP2/CCVwROJNNJw4=
+		/d+qLsFxyZ6zC39zSrJoq6nkht4=
 		</data>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		kWKBvdmi98UxEuaTM80tsVgVsdM=
+		mU29SdJLs7dBwbTdFY57zazDf04=
 		</data>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		hAmj/a9SDZ1s3U2bz8JF/1pnoVk=
+		4A2+D4Gt7PfwB/lkCEYXLQfk20U=
 		</data>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		AmUM8+hg2t4l8vkNW+s/LP5LenU=
+		og5RjKoNdioywxwfeTtUXXoHsOM=
 		</data>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		hAmj/a9SDZ1s3U2bz8JF/1pnoVk=
+		4A2+D4Gt7PfwB/lkCEYXLQfk20U=
 		</data>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		J91av4DUSBITq7EnGL7BhnJX9D4=
+		Im/OqLEQoEPyXs0KwaVVtan6BQg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -63,77 +63,77 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			9uYFXHKC363sUi0Qn0kRR9jmdZhXfJClzN2ISKXPTrs=
+			UlXUXCME8TmDaVy9wjmgnyIgGWG8GR6t3NaIN3NCfdE=
 			</data>
 		</dict>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			i/PvyByQdfc8yzw1RoEdgx0m92ES1xRlrxBG+2wmAB0=
+			hn1/tMi4vreNaZDNF67PYv8tSW4ZlssthQHpTHt7iWU=
 			</data>
 		</dict>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3zMGpWe634lkH2lKhhesZKxM01AkcmcI3WoBxXOtNDA=
+			z4Vliz4NigYQD+bY/lXHbspNorN1b58PdSB7BDRDfQ4=
 			</data>
 		</dict>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			6jFGe9wUFLOnUXB4qFdb2eHxuXGg3ctevOO8VlXtsZ4=
+			5RtThA//kCc1Hvn9QaNXACbU6g4Mqv8siuf/L/SEG+I=
 			</data>
 		</dict>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3zMGpWe634lkH2lKhhesZKxM01AkcmcI3WoBxXOtNDA=
+			z4Vliz4NigYQD+bY/lXHbspNorN1b58PdSB7BDRDfQ4=
 			</data>
 		</dict>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Cd1eBG+XGndPibtG1RlSmTmzT7lJFmzN4KcMpQVIHRA=
+			ncHA/RNC14F1l0mLfzLd9JSZtnSbGuXHTLhZ1BxaAFo=
 			</data>
 		</dict>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			i/PvyByQdfc8yzw1RoEdgx0m92ES1xRlrxBG+2wmAB0=
+			hn1/tMi4vreNaZDNF67PYv8tSW4ZlssthQHpTHt7iWU=
 			</data>
 		</dict>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2CoGKjP8OnJ/0yXIOfcB8roZwOEyVWYOyAEze2/ISOM=
+			8tqIqFScGSnCccFpbZm0s8Dj/J5qX8q0Zdn4kk/ETpo=
 			</data>
 		</dict>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3K5oiZg+DcQzwhfADdjkczsPZTT3kgHB58kwNww8qdM=
+			R3lxY5QE0tnZtKfSW/ihKbYimWseQB2RbyQaDZaJ+/s=
 			</data>
 		</dict>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2CoGKjP8OnJ/0yXIOfcB8roZwOEyVWYOyAEze2/ISOM=
+			8tqIqFScGSnCccFpbZm0s8Dj/J5qX8q0Zdn4kk/ETpo=
 			</data>
 		</dict>
 		<key>Modules/Stripe_Swift_Proxy.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			BkYRWJq9FjDLx5i5HcwHE70sJM4tKVm7quKVewgUTAo=
+			wg5G6iWY8i69dKNdJBUXC8KAgkMVV+gh22f/JF2bMnQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

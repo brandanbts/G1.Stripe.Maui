@@ -39,9 +39,9 @@ From the repository root:
 # Or manually
 dotnet restore
 dotnet build --configuration Release
-dotnet pack src\G1.Stripe.Android.Bindings\G1.Stripe.Android.Bindings.csproj --output ./nupkgs --no-build --configuration Release
-dotnet pack src\G1.Stripe.iOS.Bindings\G1.Stripe.iOS.Bindings.csproj --output ./nupkgs --no-build --configuration Release
-dotnet pack src\G1.Stripe.Maui\G1.Stripe.Maui.csproj --output ./nupkgs --no-build --configuration Release
+dotnet pack src/G1.Stripe.Android.Bindings/G1.Stripe.Android.Bindings.csproj --output ./nupkgs --no-build --configuration Release
+dotnet pack src/G1.Stripe.iOS.Bindings/G1.Stripe.iOS.Bindings.csproj --output ./nupkgs --no-build --configuration Release
+dotnet pack src/G1.Stripe.Maui/G1.Stripe.Maui.csproj --output ./nupkgs --no-build --configuration Release
 ```
 
 Packages will be created in the `./nupkgs` directory.

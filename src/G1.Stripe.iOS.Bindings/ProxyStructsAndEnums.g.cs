@@ -47,12 +47,6 @@ public enum TSPSPaymentSheetResult
     Failed = 2
 }
 
-public enum TSPSPaymentSheetIntentMode
-{
-    PaymentIntent = 0,
-    SetupIntent = 1
-}
-
 public enum TSPSUserInterfaceStyle
 {
     utomatic = 0,

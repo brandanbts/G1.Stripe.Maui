@@ -18,26 +18,14 @@ import PassKit
     case alwaysDark
 }
 
-// MARK: - PaymentSheet Intent Mode (for C# binding: disambiguates PaymentIntent vs SetupIntent)
-@objc public enum TSPSPaymentSheetIntentMode: Int {
-    case paymentIntent = 0
-    case setupIntent = 1
-}
-
 // MARK: - Main PaymentSheet Wrapper
 @objc(TSPSPaymentSheet)
 public class TSPSPaymentSheet: NSObject {
     private var paymentSheet: PaymentSheet?
     
-    /// Single initializer that maps to the correct Stripe SDK init (paymentIntentClientSecret or setupIntentClientSecret).
-    /// Use this from C# so both intent types can be called with a distinct signature.
-    @objc public convenience init(clientSecret: String, intentMode: TSPSPaymentSheetIntentMode, configuration: TSPSConfiguration) {
-        switch intentMode {
-        case .paymentIntent:
-            self.init(paymentIntentClientSecret: clientSecret, configuration: configuration)
-        case .setupIntent:
-            self.init(setupIntentClientSecret: clientSecret, configuration: configuration)
-        }
+    /// Static factory for SetupIntent. Use from C# to avoid enum marshalling issues on device (32/64-bit).
+    @objc public static func sheet(withSetupIntentClientSecret secret: String, configuration: TSPSConfiguration) -> TSPSPaymentSheet {
+        return TSPSPaymentSheet(setupIntentClientSecret: secret, configuration: configuration)
     }
     
     @objc public convenience init(paymentIntentClientSecret: String, configuration: TSPSConfiguration) {
