@@ -34,16 +34,7 @@ public class AndroidPaymentSheet : IPaymentSheet
     {
         ArgumentNullException.ThrowIfNull(_sheet);
 
-        // Resolve payment intent secret (Android currently supports PaymentIntent only; SetupIntent not wired).
-        var paymentSecret = options.PaymentIntentClientSecret ?? options.ClientSecret;
-        var hasSetup = !string.IsNullOrWhiteSpace(options.SetupIntentClientSecret);
-        var hasPayment = !string.IsNullOrWhiteSpace(paymentSecret);
-        if (hasSetup && hasPayment)
-            throw new ArgumentException("Set either PaymentIntent client secret (ClientSecret or PaymentIntentClientSecret) or SetupIntentClientSecret, not both.", nameof(options));
-        if (!hasSetup && !hasPayment)
-            throw new ArgumentException("Set either PaymentIntent client secret (ClientSecret or PaymentIntentClientSecret) or SetupIntentClientSecret.", nameof(options));
-        if (hasSetup)
-            throw new NotImplementedException("SetupIntentClientSecret is not yet supported on Android. Use PaymentIntent client secret for now.");
+        var (clientSecret, isSetupIntent) = GetIntentSecretAndMode(options);
 
         // If a Stripe Connect account is specified, reinitialize PaymentConfiguration with the account ID
         // In Stripe Android SDK, the account ID needs to be set when initializing PaymentConfiguration
@@ -58,9 +49,28 @@ public class AndroidPaymentSheet : IPaymentSheet
         _tcs = new TaskCompletionSource<SharedPSResult>();
         using (ct.Register(() => _tcs.TrySetCanceled(ct)))
         {
-            _sheet.PresentWithPaymentIntent(paymentSecret!, configuration);
+            if (isSetupIntent)
+                _sheet.PresentWithSetupIntent(clientSecret, configuration);
+            else
+                _sheet.PresentWithPaymentIntent(clientSecret, configuration);
             return await _tcs.Task.ConfigureAwait(false);
         }
+    }
+
+    private static (string clientSecret, bool isSetupIntent) GetIntentSecretAndMode(PaymentSheetOptions options)
+    {
+        var hasSetup = !string.IsNullOrWhiteSpace(options.SetupIntentClientSecret);
+        var paymentSecret = options.PaymentIntentClientSecret ?? options.ClientSecret;
+        var hasPayment = !string.IsNullOrWhiteSpace(paymentSecret);
+
+        if (hasSetup && hasPayment)
+            throw new ArgumentException("Set either PaymentIntent client secret (ClientSecret or PaymentIntentClientSecret) or SetupIntentClientSecret, not both.", nameof(options));
+        if (!hasSetup && !hasPayment)
+            throw new ArgumentException("Set either PaymentIntent client secret (ClientSecret or PaymentIntentClientSecret) or SetupIntentClientSecret.", nameof(options));
+
+        if (hasSetup)
+            return (options.SetupIntentClientSecret!, true);
+        return (paymentSecret!, false);
     }
 
     private class ResultCallback(AndroidPaymentSheet sheet) : Java.Lang.Object, IPaymentSheetResultCallback
