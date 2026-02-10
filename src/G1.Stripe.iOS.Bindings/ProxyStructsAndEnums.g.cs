@@ -47,6 +47,13 @@ public enum TSPSPaymentSheetResult
     Failed = 2
 }
 
+public enum TSPSCustomerSheetResult
+{
+    Canceled = 0,
+    Selected = 1,
+    Error = 2
+}
+
 public enum TSPSUserInterfaceStyle
 {
     utomatic = 0,

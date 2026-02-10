@@ -7,7 +7,7 @@
 
 ## Step 1: Rebuild the Swift Proxy Framework
 
-Since we modified Swift code (`PaymentSheetProxy.swift` and `FlowControllerProxy.swift`), you need to rebuild the xcframework:
+Since we modified Swift code (`PaymentSheetProxy.swift`, `FlowControllerProxy.swift`, or `CustomerSheetProxy.swift`), you need to rebuild the xcframework:
 
 ```bash
 cd src
@@ -90,9 +90,7 @@ If you're working in the same solution, use project references:
 </ItemGroup>
 ```
 
-## Step 4: Verify the Changes
-
-You can now use `IntentConfiguration` in your code:
+## Step 4: Using Payment Sheet
 
 ```csharp
 var options = new PaymentSheetOptions
@@ -107,6 +105,64 @@ var options = new PaymentSheetOptions
 
 var result = await paymentSheet.Open(options, cancellationToken);
 ```
+
+## Using CustomerSheet (Payment Method Settings)
+
+Usage is the same as before: inject `ICustomerSheet`, call `Initialize` once, then `PresentAsync` with options. No bridge or callbacks—you pass `CustomerId`, `CustomerSessionClientSecret`, and optional `SetupIntentClientSecret` directly.
+
+**1. Register and inject** (already done if you use `UseStripePaymentSheet()`):
+
+```csharp
+// In MauiProgram.cs – UseStripePaymentSheet() registers both IPaymentSheet and ICustomerSheet
+builder.UseStripePaymentSheet();
+```
+
+**2. Get secrets from your backend** (e.g. create customer, create customer session, and optionally a SetupIntent for adding payment methods):
+
+- `CustomerId`: e.g. from `POST /v1/customers` (`cus_xxx`).
+- `CustomerSessionClientSecret`: from `POST /v1/customer_sessions` with that customer (`cuss_xxx`).
+- `SetupIntentClientSecret` (optional): from `POST /v1/setup_intents` with `customer=cus_xxx` (`seti_xxx`). Required only if users can add new payment methods.
+
+**3. Present the sheet:**
+
+```csharp
+// Inject ICustomerSheet in your page or view model
+public MyPage(ICustomerSheet customerSheet)
+{
+    _customerSheet = customerSheet;
+}
+
+// When opening (e.g. "Manage payment methods" in settings)
+_customerSheet.Initialize("pk_test_...");
+
+var options = new CustomerSheetOptions
+{
+    MerchantDisplayName = "My App",
+    CustomerId = customerId,                    // from your backend
+    CustomerSessionClientSecret = sessionSecret, // from your backend
+    SetupIntentClientSecret = setupSecret,       // optional; required to add new payment methods
+    HeaderTextForSelectionScreen = "Manage your payment method",
+    ReturnURL = "myapp://stripe-redirect"       // optional, for redirect flows
+};
+
+var result = await _customerSheet.PresentAsync(options);
+
+switch (result)
+{
+    case CustomerSheetResult.Canceled canceled:
+        // User closed the sheet. canceled.PreviousSelection may have the prior selection.
+        break;
+    case CustomerSheetResult.Selected selected:
+        // User picked a payment method (or removed the last one). selected.Selection can be null.
+        break;
+    case CustomerSheetResult.Failed failed:
+        // failed.Error has the exception
+        await DisplayAlert("Error", failed.Error.Message, "OK");
+        break;
+}
+```
+
+So from the MAUI app’s perspective **nothing changed**: same `ICustomerSheet`, same `CustomerSheetOptions`, same `CustomerSheetResult`. Only the internal implementation no longer uses a bridge.
 
 ## Troubleshooting
 

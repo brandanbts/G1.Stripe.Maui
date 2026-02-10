@@ -12,6 +12,7 @@
 		322D90A42E1140C0008CB02E /* AppearanceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322D90A32E1140C0008CB02E /* AppearanceProxy.swift */; };
 		322D90A62E1140D0008CB02E /* PaymentMethodProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322D90A52E1140D0008CB02E /* PaymentMethodProxy.swift */; };
 		322D90A82E1140E0008CB02E /* FlowControllerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322D90A72E1140E0008CB02E /* FlowControllerProxy.swift */; };
+		322D90E02E160000008CB02E /* CustomerSheetProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322D90DF2E160000008CB02E /* CustomerSheetProxy.swift */; };
 		322D90D22E15500E008CB02E /* StripeCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322D90CD2E15500E008CB02E /* StripeCore.xcframework */; };
 		322D90D32E15500E008CB02E /* StripePaymentsUI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322D90D02E15500E008CB02E /* StripePaymentsUI.xcframework */; };
 		322D90D42E15500E008CB02E /* StripePaymentSheet.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 322D90CF2E15500E008CB02E /* StripePaymentSheet.xcframework */; };
@@ -28,6 +29,7 @@
 		322D90A32E1140C0008CB02E /* AppearanceProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceProxy.swift; sourceTree = "<group>"; };
 		322D90A52E1140D0008CB02E /* PaymentMethodProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodProxy.swift; sourceTree = "<group>"; };
 		322D90A72E1140E0008CB02E /* FlowControllerProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControllerProxy.swift; sourceTree = "<group>"; };
+		322D90DF2E160000008CB02E /* CustomerSheetProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSheetProxy.swift; sourceTree = "<group>"; };
 		322D90CB2E15500E008CB02E /* Stripe3DS2.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Stripe3DS2.xcframework; path = ../G1.Stripe.iOS.Bindings/stripe/Stripe3DS2.xcframework; sourceTree = "<group>"; };
 		322D90CC2E15500E008CB02E /* StripeApplePay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StripeApplePay.xcframework; path = ../G1.Stripe.iOS.Bindings/stripe/StripeApplePay.xcframework; sourceTree = "<group>"; };
 		322D90CD2E15500E008CB02E /* StripeCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = StripeCore.xcframework; path = ../G1.Stripe.iOS.Bindings/stripe/StripeCore.xcframework; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				322D909F2E1140A0008CB02E /* PaymentSheetProxy.swift */,
 				322D90A12E1140B0008CB02E /* ApplePayConfigurationProxy.swift */,
 				322D90A32E1140C0008CB02E /* AppearanceProxy.swift */,
+				322D90DF2E160000008CB02E /* CustomerSheetProxy.swift */,
 				322D90A52E1140D0008CB02E /* PaymentMethodProxy.swift */,
 				322D90A72E1140E0008CB02E /* FlowControllerProxy.swift */,
 			);
@@ -184,6 +187,7 @@
 				322D90A02E1140A0008CB02E /* PaymentSheetProxy.swift in Sources */,
 				322D90A22E1140B0008CB02E /* ApplePayConfigurationProxy.swift in Sources */,
 				322D90A42E1140C0008CB02E /* AppearanceProxy.swift in Sources */,
+				322D90E02E160000008CB02E /* CustomerSheetProxy.swift in Sources */,
 				322D90A62E1140D0008CB02E /* PaymentMethodProxy.swift in Sources */,
 				322D90A82E1140E0008CB02E /* FlowControllerProxy.swift in Sources */,
 			);

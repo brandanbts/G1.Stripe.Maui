@@ -1,4 +1,4 @@
-﻿#if ANDROID
+#if ANDROID
 
 using Microsoft.Maui.LifecycleEvents;
 
@@ -27,8 +27,10 @@ public static class PaymentSheetDI
         });
 
         mauiAppBuilder.Services.AddSingleton<IPaymentSheet>(androidSheet);
+        mauiAppBuilder.Services.AddSingleton<ICustomerSheet, AndroidCustomerSheet>();
 #elif IOS
         mauiAppBuilder.Services.AddSingleton<IPaymentSheet, iOSPaymentSheet>();
+        mauiAppBuilder.Services.AddSingleton<ICustomerSheet, iOSCustomerSheet>();
 #endif
         return mauiAppBuilder;
     }

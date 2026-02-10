@@ -556,6 +556,50 @@ interface TSPSPaymentSheetFlowController
     unsafe void ConfirmFrom(UIViewController presentingViewController, Action<TSPSPaymentSheetResult, IntPtr> completion);
 }
 
+// @interface TSPSCustomerSheetConfiguration
+[BaseType(typeof(NSObject))]
+interface TSPSCustomerSheetConfiguration
+{
+    [Export("merchantDisplayName")]
+    string MerchantDisplayName { get; set; }
+
+    [NullAllowed, Export("returnURL")]
+    string ReturnURL { get; set; }
+
+    [NullAllowed, Export("headerTextForSelectionScreen")]
+    string HeaderTextForSelectionScreen { get; set; }
+
+    [NullAllowed, Export("onBehalfOf")]
+    string OnBehalfOf { get; set; }
+}
+
+// @interface TSPSCustomerSheetPaymentOption
+[DisableDefaultCtor]
+[BaseType(typeof(NSObject))]
+interface TSPSCustomerSheetPaymentOption
+{
+    [NullAllowed, Export("paymentMethodId")]
+    string PaymentMethodId { get; }
+
+    [Export("label")]
+    string Label { get; }
+
+    [Export("isWallet")]
+    bool IsWallet { get; }
+}
+
+// @interface TSPSCustomerSheet
+// Same pattern as PaymentSheet: pass configuration and secrets directly (no bridge).
+[BaseType(typeof(NSObject))]
+interface TSPSCustomerSheet
+{
+    [Export("initWithConfiguration:customerId:customerSessionClientSecret:setupIntentClientSecret:")]
+    NativeHandle Constructor(TSPSCustomerSheetConfiguration configuration, string customerId, string customerSessionClientSecret, [NullAllowed] string setupIntentClientSecret);
+
+    [Export("presentFrom:completion:")]
+    void PresentFrom(UIViewController presentingViewController, Action<TSPSCustomerSheetResult, TSPSCustomerSheetPaymentOption, NSError> completion);
+}
+
 // @interface TSPSSetupIntent
 [DisableDefaultCtor]
 [BaseType(typeof(NSObject))]

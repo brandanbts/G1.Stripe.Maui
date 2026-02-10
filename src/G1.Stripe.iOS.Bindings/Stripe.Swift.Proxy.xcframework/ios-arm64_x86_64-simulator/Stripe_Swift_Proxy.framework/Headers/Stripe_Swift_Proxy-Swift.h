@@ -484,6 +484,45 @@ SWIFT_CLASS_NAMED("TSPSCustomerConfiguration")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class TSPSCustomerSheetConfiguration;
+@class UIViewController;
+enum TSPSCustomerSheetResult : NSInteger;
+@class TSPSCustomerSheetPaymentOption;
+@class NSError;
+/// Same pattern as PaymentSheet: pass configuration and secrets directly. No bridge protocol.
+SWIFT_CLASS_NAMED("TSPSCustomerSheet")
+@interface TSPSCustomerSheet : NSObject
+- (nonnull instancetype)initWithConfiguration:(TSPSCustomerSheetConfiguration * _Nonnull)configuration customerId:(NSString * _Nonnull)customerId customerSessionClientSecret:(NSString * _Nonnull)customerSessionClientSecret setupIntentClientSecret:(NSString * _Nullable)setupIntentClientSecret OBJC_DESIGNATED_INITIALIZER;
+- (void)presentFrom:(UIViewController * _Nonnull)presentingViewController completion:(void (^ _Nonnull)(enum TSPSCustomerSheetResult, TSPSCustomerSheetPaymentOption * _Nullable, NSError * _Nullable))completion;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS_NAMED("TSPSCustomerSheetConfiguration")
+@interface TSPSCustomerSheetConfiguration : NSObject
+@property (nonatomic, copy) NSString * _Nonnull merchantDisplayName;
+@property (nonatomic, copy) NSString * _Nullable returnURL;
+@property (nonatomic, copy) NSString * _Nullable headerTextForSelectionScreen;
+@property (nonatomic, copy) NSString * _Nullable onBehalfOf;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS_NAMED("TSPSCustomerSheetPaymentOption")
+@interface TSPSCustomerSheetPaymentOption : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable paymentMethodId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull label;
+@property (nonatomic, readonly) BOOL isWallet;
+- (nonnull instancetype)initWithPaymentMethodId:(NSString * _Nullable)paymentMethodId label:(NSString * _Nonnull)label isWallet:(BOOL)isWallet OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+typedef SWIFT_ENUM(NSInteger, TSPSCustomerSheetResult, open) {
+  TSPSCustomerSheetResultCanceled = 0,
+  TSPSCustomerSheetResultSelected = 1,
+  TSPSCustomerSheetResultError = 2,
+};
+
 SWIFT_CLASS_NAMED("TSPSIntentConfiguration")
 @interface TSPSIntentConfiguration : NSObject
 @property (nonatomic, copy) NSString * _Nullable onBehalfOf;
@@ -568,8 +607,6 @@ SWIFT_CLASS_NAMED("TSPSPaymentOption")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class UIViewController;
-@class NSError;
 SWIFT_CLASS_NAMED("TSPSPaymentSheet")
 @interface TSPSPaymentSheet : NSObject
 /// Static factory for SetupIntent. Use from C# to avoid enum marshalling issues on device (32/64-bit).
@@ -1108,6 +1145,45 @@ SWIFT_CLASS_NAMED("TSPSCustomerConfiguration")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class TSPSCustomerSheetConfiguration;
+@class UIViewController;
+enum TSPSCustomerSheetResult : NSInteger;
+@class TSPSCustomerSheetPaymentOption;
+@class NSError;
+/// Same pattern as PaymentSheet: pass configuration and secrets directly. No bridge protocol.
+SWIFT_CLASS_NAMED("TSPSCustomerSheet")
+@interface TSPSCustomerSheet : NSObject
+- (nonnull instancetype)initWithConfiguration:(TSPSCustomerSheetConfiguration * _Nonnull)configuration customerId:(NSString * _Nonnull)customerId customerSessionClientSecret:(NSString * _Nonnull)customerSessionClientSecret setupIntentClientSecret:(NSString * _Nullable)setupIntentClientSecret OBJC_DESIGNATED_INITIALIZER;
+- (void)presentFrom:(UIViewController * _Nonnull)presentingViewController completion:(void (^ _Nonnull)(enum TSPSCustomerSheetResult, TSPSCustomerSheetPaymentOption * _Nullable, NSError * _Nullable))completion;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS_NAMED("TSPSCustomerSheetConfiguration")
+@interface TSPSCustomerSheetConfiguration : NSObject
+@property (nonatomic, copy) NSString * _Nonnull merchantDisplayName;
+@property (nonatomic, copy) NSString * _Nullable returnURL;
+@property (nonatomic, copy) NSString * _Nullable headerTextForSelectionScreen;
+@property (nonatomic, copy) NSString * _Nullable onBehalfOf;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+SWIFT_CLASS_NAMED("TSPSCustomerSheetPaymentOption")
+@interface TSPSCustomerSheetPaymentOption : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nullable paymentMethodId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull label;
+@property (nonatomic, readonly) BOOL isWallet;
+- (nonnull instancetype)initWithPaymentMethodId:(NSString * _Nullable)paymentMethodId label:(NSString * _Nonnull)label isWallet:(BOOL)isWallet OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+typedef SWIFT_ENUM(NSInteger, TSPSCustomerSheetResult, open) {
+  TSPSCustomerSheetResultCanceled = 0,
+  TSPSCustomerSheetResultSelected = 1,
+  TSPSCustomerSheetResultError = 2,
+};
+
 SWIFT_CLASS_NAMED("TSPSIntentConfiguration")
 @interface TSPSIntentConfiguration : NSObject
 @property (nonatomic, copy) NSString * _Nullable onBehalfOf;
@@ -1192,8 +1268,6 @@ SWIFT_CLASS_NAMED("TSPSPaymentOption")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class UIViewController;
-@class NSError;
 SWIFT_CLASS_NAMED("TSPSPaymentSheet")
 @interface TSPSPaymentSheet : NSObject
 /// Static factory for SetupIntent. Use from C# to avoid enum marshalling issues on device (32/64-bit).

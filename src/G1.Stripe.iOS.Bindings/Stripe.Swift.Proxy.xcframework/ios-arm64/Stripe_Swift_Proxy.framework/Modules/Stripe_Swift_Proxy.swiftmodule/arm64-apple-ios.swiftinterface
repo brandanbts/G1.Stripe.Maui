@@ -191,6 +191,36 @@ import _SwiftConcurrencyShims
   @objc override dynamic public init()
   @objc deinit
 }
+@objc public enum TSPSCustomerSheetResult : Swift.Int {
+  case canceled = 0
+  case selected
+  case error
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(TSPSCustomerSheet) public class TSPSCustomerSheet : ObjectiveC.NSObject {
+  @objc public init(configuration: Stripe_Swift_Proxy.TSPSCustomerSheetConfiguration, customerId: Swift.String, customerSessionClientSecret: Swift.String, setupIntentClientSecret: Swift.String?)
+  @objc public func present(from presentingViewController: UIKit.UIViewController, completion: @escaping (Stripe_Swift_Proxy.TSPSCustomerSheetResult, Stripe_Swift_Proxy.TSPSCustomerSheetPaymentOption?, Foundation.NSError?) -> Swift.Void)
+  @objc deinit
+}
+@objc(TSPSCustomerSheetPaymentOption) public class TSPSCustomerSheetPaymentOption : ObjectiveC.NSObject {
+  @objc final public let paymentMethodId: Swift.String?
+  @objc final public let label: Swift.String
+  @objc final public let isWallet: Swift.Bool
+  @objc public init(paymentMethodId: Swift.String?, label: Swift.String, isWallet: Swift.Bool)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(TSPSCustomerSheetConfiguration) public class TSPSCustomerSheetConfiguration : ObjectiveC.NSObject {
+  @objc public var merchantDisplayName: Swift.String
+  @objc public var returnURL: Swift.String?
+  @objc public var headerTextForSelectionScreen: Swift.String?
+  @objc public var onBehalfOf: Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc public enum TSPSPaymentMethodType : Swift.Int {
   case card = 0
   case cardPresent
@@ -300,6 +330,9 @@ extension Stripe_Swift_Proxy.TSPSBillingDetailsCollectionConfiguration.TSPSAddre
 extension Stripe_Swift_Proxy.TSPSBillingDetailsCollectionConfiguration.TSPSCollectionMode : Swift.Equatable {}
 extension Stripe_Swift_Proxy.TSPSBillingDetailsCollectionConfiguration.TSPSCollectionMode : Swift.Hashable {}
 extension Stripe_Swift_Proxy.TSPSBillingDetailsCollectionConfiguration.TSPSCollectionMode : Swift.RawRepresentable {}
+extension Stripe_Swift_Proxy.TSPSCustomerSheetResult : Swift.Equatable {}
+extension Stripe_Swift_Proxy.TSPSCustomerSheetResult : Swift.Hashable {}
+extension Stripe_Swift_Proxy.TSPSCustomerSheetResult : Swift.RawRepresentable {}
 extension Stripe_Swift_Proxy.TSPSPaymentMethodType : Swift.Equatable {}
 extension Stripe_Swift_Proxy.TSPSPaymentMethodType : Swift.Hashable {}
 extension Stripe_Swift_Proxy.TSPSPaymentMethodType : Swift.RawRepresentable {}
